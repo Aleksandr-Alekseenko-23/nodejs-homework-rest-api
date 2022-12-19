@@ -45,4 +45,12 @@ router.patch(
   ctrlWrapper(ctrl.updateAvatar)
 );
 
+router.get("/verify/:verificationCode", ctrlWrapper(ctrl.verify));
+
+router.post(
+  "/verify",
+  validateBody(schemas.verifySchema),
+  ctrlWrapper(ctrl.resendEmail)
+);
+
 module.exports = router;
